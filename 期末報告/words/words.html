@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> words</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="textualizer.js"></script>
+<style type="text/css">
+  #txtlzr { 
+    font-size: 50px; 
+    width: 700px;
+    height: 150px;
+  }
+</style>
+<script type="text/javascript"> 
+  $(function() {
+    var txt = $('#txtlzr'); //txtlzr網頁使用的方法
+    var options = { //設定切換樣式
+      duration: 50, //每組字串停留時間，單位毫秒
+      rearrangeDuration: 50,//每組字串切換的停留時間，單位毫秒
+      effect: 'random',
+    }
+    txt.textualizer(); //textualizer讓字元隨機移動到特定位置
+    txt.textualizer('start');
+  })
+</script>
+</head>
+<body>
+<div id="txtlzr">
+<p>Welcome to the 18th department association.</p>
+<p>These are our members.</p>
+<p>We love MIS.</p>
+<p>We are the best and we know we can do it.</p>
+<p>We are family,we will do the right thing.</p>
+</body>
+</html>

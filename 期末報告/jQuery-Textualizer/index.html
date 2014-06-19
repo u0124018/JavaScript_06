@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 0124025 jQuery Textualizer example</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="textualizer.js"></script>
+<style type="text/css">
+  #txtlzr {
+    font-size: 50px;
+    width: 300px;
+    height: 1000px;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+</style>
+<script type="text/javascript"> 
+  $(function() {
+    var txt = $('#txtlzr'); 
+    var options = {
+      duration: 50, 
+      rearrangeDuration: 50,
+      effect: 'random',
+    }
+    txt.textualizer();
+    txt.textualizer('start');
+  })
+</script>
+</head>
+<body>
+<h1 style="margin-top:150px;">0124025 jQuery Textualizer example</h1>
+<div id="txtlzr">
+<p>Never change who I am.</p>
+<p>In the end , the only thing you really own is yourstory.</p>
+<p>You wll never know until you try.</p>
+<p>You can always plan for tomorrow, but you've gotta live today.</p>
+<p>I'm grateful for my imperfections; they let me understand who truly cares about me.</p>
+</body>
+</html>

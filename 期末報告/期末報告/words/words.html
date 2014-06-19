@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 0124025 jQuery Textualizer example</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="textualizer.js"></script>
+<style type="text/css">
+  #txtlzr {
+    font-size: 50px;
+    width: 700px;
+    height: 150px;
+  }
+</style>
+<script type="text/javascript"> 
+  $(function() {
+    var txt = $('#txtlzr'); 
+    var options = {
+      duration: 50, 
+      rearrangeDuration: 50,
+      effect: 'random',
+    }
+    txt.textualizer();
+    txt.textualizer('start');
+  })
+</script>
+</head>
+<body>
+<div id="txtlzr">
+<p>Welcome to the 18th department association.</p>
+<p>These are our members.</p>
+<p>We love MIS.</p>
+<p>We are the best and we know we can do it.</p>
+<p>We are family,we will do the right thing.</p>
+</body>
+</html>

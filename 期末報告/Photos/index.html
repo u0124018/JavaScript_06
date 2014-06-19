@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<style>
+.Bpic {
+	width: 210px;
+	height: 234px;
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 5px;
+}
+.Bpic ul {
+	position: absolute;
+	width: 210px;
+	height: 234px;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+.Bpic ul li {
+	float: left;
+	display: block;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+.Bpic ul li img {
+	width: 210px;
+	height: 234px;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	display: block;
+}
+#pre {
+	float: left;
+	width: 40px;
+	height: 60px;
+	margin-top: 93px;
+}
+#next {
+	float: left;
+	width: 40px;
+	height: 60px;
+	margin-top: 93px;
+}
+#txt {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 210px;
+	height: 25px;
+	background-color: rgba(0,0,0,0.4);
+}
+#txt i {
+	text-decoration: none;
+	font-size: 16px;
+	font-style: normal;
+	color: rgba(255,255,255,1);
+	margin-left: 10px;
+	line-height: 22px;
+}
+.title_ {
+	font-size: 36px;
+	font-weight: bold;
+	color: rgba(255,255,255,1);
+	background-color: rgba(0,102,255,0.4);
+	text-decoration: overline;
+	text-align: center;
+	margin: 8px;
+}
+</style>
+<script>
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+var pic_no = 0;
+var txt = new Array("會長-徐O涵","副會長-陳O宏","執行秘書-林O龍","活動長-高O紘","活動長-林O興","公關長-陳O岑","公關長-黃O欽","美宣長-謝O儀","美宣長-蘇O莎","會計長-林O君","出納長-楊O婕","器材長-彭O楷","器材長-張O雄","資訊長-陳O佳","攝影長-邱O晉","體育長-張O瑞","體育長-趙O妏","生輔長-謝O筑");
+var txt_index = -1;
+var timer = null;
+function nextPic(){
+	stoptimer();
+	pic_no++;
+	txt_index++;
+	if(pic_no > 18) {
+		pic_no = 1;
+		txt_index = 0;
+	}
+	var show = document.getElementById("showPic").src = "images/" + pic_no + ".png";
+	chtxt();
+	timer = setTimeout("autoShowPic()", 3500);
+}
+function prePic(){
+	stoptimer();
+	pic_no--;
+	txt_index--;
+	if(pic_no < 1) {
+		pic_no = 18;
+		txt_index = 17;
+	}
+	var show = document.getElementById("showPic").src = "images/" + pic_no + ".png";
+	chtxt();
+	timer = setTimeout("autoShowPic()", 3500);
+}
+
+function autoShowPic(){
+	pic_no++;
+	txt_index++;
+	if(pic_no > 18) {
+		pic_no = 1;
+		txt_index = 0;
+	}
+	var show = document.getElementById("showPic").src = "images/" + pic_no + ".png";
+	chtxt();
+	timer = setTimeout("autoShowPic()", 3500);
+}
+
+function stoptimer(){
+	clearTimeout(timer);
+}
+
+function chtxt(){
+	document.getElementById("txt").innerHTML = "<i>" + txt[txt_index] + "</i>";
+}
+
+function loading(){
+	MM_preloadImages('images/pre2.jpg','images/next2.jpg');
+	autoShowPic();
+}
+
+</script>
+</head>
+
+<body onload="loading()">
+<div style=" width:310px">
+  <div class="title_">系幹部照片</div>
+  <div id="pre" onclick="prePic()"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/pre2.jpg',1)"><img src="images/pre1.jpg" width="40" height="60" id="Image2" /></a></div>
+  <div class="Bpic">
+    <ul style="margin:0px;">
+      <li><img id="showPic" src="images/1.png" width="210" height="234" border="0"/></li>
+    </ul>
+    <div id="txt"><i>會長-徐O涵</i></div>
+  </div>
+  <div id="next" onclick="nextPic()"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/next2.jpg',1)"><img src="images/next1.jpg" width="40" height="60" id="Image3" /></a></div>
+</div>
+</body>
+</html>

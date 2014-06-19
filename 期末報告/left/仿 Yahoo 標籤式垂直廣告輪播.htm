@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-tw">
+<head>
+<meta name="Generator" content="EditPlus" />
+<meta name="Author" content="男丁格爾's 脫殼玩" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>垂直廣告輪播</title>
+<style type="text/css">
+	a img {
+		border: none;
+		vertical-align: middle;
+	}
+	#adblock {
+		overflow: hidden;
+		width: 360px;	/* 廣告圖片的寬 + 選單圖片最大的寬 */
+		height: 390px;	/* 廣告圖片的高 */
+		border: 1px solid #ccc;
+		position: relative;
+	}
+	#adblock ul, #adblock li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#adblock ul.showbox, #adblock ul.link {
+		position: absolute;
+	}
+	#adblock ul.showbox li a {
+		display: block;
+		height: 390px;	/* 廣告圖片的高 */
+	}
+	#adblock ul.showbox {
+		right: 0;
+	}
+	#adblock ul.link li a {
+		display: block;
+		width: 100px;	/* 滑鼠未移入時的選單圖片寬 */
+		height: 30px;	/* 選單圖片的高 */
+		position: absolute;
+		text-indent:20px;
+		line-height: 30px;
+		
+		background-image: url(menu1.gif);
+	}
+	#adblock ul.link li a.selected {
+		width: 110px;	/* 滑鼠移入時的選單圖片寬 */
+		background-image: url(menu2.gif);
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		// 大廣告圖片的高度及動畫時間
+		var adHeight = 390,
+			animateSpeed = 360;
+		$('#adblock ul.link li a').each(function(i){
+			// 把選單排好位置
+			$(this).css('top', i * 30);
+		}).mouseover(function(){
+			var $this = $(this),
+				// 找出目前 li 是在選單中的第幾個(jQuery 1.4)
+				no = $this.parent().index();
+			
+			// 先移除有 .selected 的超連結的樣式
+			$('#adblock ul.link li a.selected').removeClass('selected');
+			// 再把目前點擊到的超連結加上 .selected
+			$this.addClass('selected');
+			
+			// 把 ul.showbox 的 top 移到相對應的高度
+			$('#adblock ul.showbox').stop().animate({
+				top: adHeight * no * -1
+			}, animateSpeed);
+		}).focus(function(){
+			$(this).blur();
+		}).eq(0).mouseover();
+	});
+</script>
+</head>
+
+<body>
+	<div id="adblock">
+		<ul class="showbox" style="top: -660px;">
+			<li><a ><img src=".\系會海苔照\1.jpg" title="系會長"></a></li>
+			<li><a ><img src=".\系會海苔照\3.jpg" title="副系會長"></a></li>
+			<li><a ><img src=".\系會海苔照\17.jpg" title="執行秘書"></a></li>
+			<li><a ><img src=".\系會海苔照\5.jpg" title="活動長"></a></li>
+            <li><a ><img src=".\系會海苔照\2.jpg" title="公關長"></a></li>
+            <li><a ><img src=".\系會海苔照\10.jpg" title="美宣長"></a></li>
+            <li><a ><img src=".\系會海苔照\8.jpg" title="會計長"></a></li>
+            <li><a ><img src=".\系會海苔照\9.jpg" title="出納長"></a></li>
+            <li><a ><img src=".\系會海苔照\7.jpg" title="器材長"></a></li>
+            <li><a ><img src=".\系會海苔照\6.jpg" title="資訊長"></a></li>
+            <li><a ><img src=".\系會海苔照\19.jpg" title="攝影長"></a></li>
+            <li><a ><img src=".\系會海苔照\18.jpg" title="體育長"></a></li>
+            <li><a ><img src=".\系會海苔照\12.jpg" title="生輔長"></a></li>
+            
+
+		</ul>
+		<ul class="link">
+			<li><a href="https://www.facebook.com/profile.php?id=100002059089156&fref=ts" class="" style="top: 0px;">系會長</a></li>
+			<li><a href="https://www.facebook.com/zehong1?fref=ts" class="" style="top: 30px;">副系會長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000340422510&fref=ts" class="" style="top: 60px;">執行秘書</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000214208082&fref=ts" class="selected" style="top: 90px;">活動長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000239353325&fref=ts" class="" style="top: 120px;">公關長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000254796795&fref=ts" class="" style="top: 150px;">美宣長</a></li>
+			<li><a href="https://www.facebook.com/hsuanchun.lin.5?fref=ts" class="" style="top: 180px;">會計長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000224515291&fref=ts" class="" style="top: 210px;">出納長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100001871458038&fref=ts" class="" style="top: 240px;">器材長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100000244639398&fref=ts" class="" style="top: 270px;">資訊長</a></li>
+			<li><a href="https://www.facebook.com/jackey.chiu.37?fref=ts" class="" style="top: 300px;">攝影長</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100001634480939&fref=ts" class="" style="top: 330px;">體育長</a></li>
+			<li><a href="https://www.facebook.com/yongzhux?fref=ts" class="" style="top: 360px;">生輔長</a></li>
+			
+		</ul>
+	</div>
+</body>
+</html>

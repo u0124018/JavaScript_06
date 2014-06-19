@@ -1,0 +1,23 @@
+<a href="https://www.google.com.tw/" _fcksavedurl="https://www.google.com.tw/"target="_blank">
+<script Language="JavaScript1.1">
+var slidespeed=1500
+var slideimages=new Array("menu1.gif","menu2.gif")
+var imageholder=new Array()
+var ie55=window.createPopup
+for (i=0;i<slideimages .length;i++){ imageholder[i]=new Image()
+imageholder[i].src=slideimages[i] } function gotoshow(){
+window.location=slidelinks[whichlink] }
+</script>
+<img src="" _fcksavedurl="" name="slide"style="filter:progid:DXImageTransform.Microsoft.Pixelate(MaxSquare=15,Duration=1)" align="middle" border="0">
+<script language="JavaScript1.1">
+var whichlink=0 
+var whichimage=0 
+var pixeldelay=(ie55)? document.images.slide.filters[0].duration*1000 : 0 
+function slideit(){ if (!document.images) return 
+if (ie55) document.images.slide.filters[0].apply() 
+document.images.slide.src=imageholder[whichimage].src 
+if (ie55) document.images.slide.filters[0].play() 
+whichlink=whichimage 
+whichimage=(whichimage<slideimages .length-1)? whichimage+1 : 0 
+setTimeout("slideit()",slidespeed+pixeldelay) } 
+slideit() </script></slideimages></script></slideimages></script></a>
